@@ -1,0 +1,195 @@
+{
+	// Copy any modified settings to `User/Emmet.sublime-settings`
+	// otherwise modifications will not survive updates.
+
+	// Path to folder where Emmet should look for extensions
+	// http://docs.emmet.io/customization/
+	"extensions_path": "~/emmet",
+
+	// Disable completions of HTML attributes
+	// with this option disabled, you can get attribute list completions
+	// inside opening HTML tags.
+	// WARNING: with this option disabled, Tab key expander will not
+	// work inside opening HTML attributes
+	"disable_completions": false,
+
+	// With this option enabled, all Emmet's CSS snippets
+	// will be available in standard auto-complete popup
+	"show_css_completions": true,
+
+	// List of scopes where Emmet CSS completions should be available
+	"css_completions_scope": "source.css - meta.selector.css - meta.property-value.css, source.scss - meta.selector.scss - meta.property-value.scss, source.less - meta.selector.css - meta.property-value.css",
+
+	// Remove default HTML tag completions on plugin start
+	// You should restart editor after changing this option
+	"remove_html_completions": false,
+
+	// A comma-separated list of scopes where Emmet’s Tab key
+	// abbreviation expander should be disabled	 
+	"disable_tab_abbreviations_for_scopes": "",
+
+	// A regexp for scope name: if it matches, Tab handler won’t work
+	// The reason to use this preference is that ST2 has buggy scope matcher
+	// which may still trigger Tab handler even if it's restricted by context
+	"disable_tab_abbreviations_for_regexp": "source\\.(?!css).+?\\stext\\.html",
+
+	// Exit tabstop mode when enter key is pressed
+	"clear_fields_on_enter_key": true,
+
+	// A comma-separated list of disabled action names.
+	// Listed action will not be triggered by default keyboard
+	// shortcut.
+	// Use "all" value to disable all shortcuts at once
+	"disabled_keymap_actions": "",
+
+	// By default, Emmet overrides Tab key to effectively expand abbreviations.
+	// The downside of this approach is that you can’t expand regular ST2
+	// snippets (like `php`). Since it’s not currently possible to get a list
+	// of ST2 snippets via API, you can provide a list of scopes where Emmet’s
+	// Tab trigger should be disabled when expanding simple abbreviation.
+	// If entered abbreviation (like `php`) wasn’t found in Emmet snippets list
+	// or "known_html_tags" preference, Tab handler will not be triggered.
+	// Leave this setting blank to disable this feature
+	"disabled_single_snippet_for_scopes": "text.html",
+
+	// A space-separated list of single snippets that should be 
+	// forcilbly disabled (not handled) for Emmet even if it 
+	// has such abbreviation. 
+	// This option is useful if you wish the enumerated snippets
+	// should be handled by Sublime Text.
+	// Example value: "script style html"
+	"disabled_single_snippets": "",
+
+	// A space separated list of all known HTML tags,
+	// used together with "disabled_on_single_snippets" option
+	"known_html_tags": "html head title base link meta style script noscript body section nav article aside h1 h2 h3 h4 h5 h6 hgroup header footer address p hr pre blockquote ol ul li dl dt dd figure figcaption div a em strong small s cite q dfn abbr data time code var samp kbd sub sup i b u mark ruby rt rp bdi bdo span br wbr ins del img iframe embed object param video audio source track canvas map area svg math table caption colgroup col tbody thead tfoot tr td th form fieldset legend label input button select datalist optgroup option textarea keygen output progress meter details summary command menu main template",
+
+	"empty_elements": "area base basefont br col frame hr img input isindex link meta param embed",
+
+	// If set to `true`, Emmet will automatically insert final tabstop
+	// at the end of expanded abbreviation
+	"insert_final_tabstop": false,
+
+	// Try to automatically detect XHTML dialect in HTML documents.
+	// With this option enabled, your custom profile for HTML documents may not work.
+	"autodetect_xhtml": true,
+
+	// Use old Tab handler to expand abbreviations.
+	// With this option enabled, editor may better handle Tab key
+	// (especially with other plugins that overrides Tab key),
+	// but will spit "slow plugin" message
+	"use_old_tab_handler": false,
+
+	// Disables PyV8 auto-update. Useful for users who installed PyV8
+	// manually from https://github.com/emmetio/pyv8-binaries because
+	// of local proxy restrictions
+	"disable_pyv8_update": false,
+
+	// Expand abbreviations inside PHP strings on single line
+	// (e.g. without formatting)
+	"php_single_line": false,
+
+	///////////////////////////////
+	// Emmet customization
+	// Each section has the same meaning as the same-named JSON file 
+	// described here:
+	// http://docs.emmet.io/customization/
+	///////////////////////////////
+
+
+	// Custom snippets definitions, as per https://github.com/emmetio/emmet/blob/master/snippets.json
+	"snippets": {
+		"html": {
+			"filters": "html",
+			"profile": "html",
+		},
+		"snippets": {
+			// Foundation 6 Elements
+			//
+			//	MENUS
+			"menu": "ul.menu>li*${1:how_many}>a{Link \\$}",
+			"menu:bar": ".top-bar>(.top-bar-left>ul.dropdown.menu[data-dropdown-menu.]>li.menu-text{${1:Site Title}}+li*${2:how_many}>a{\\$}>ul.menu.vertical>li*${4:how_many}>a{\\$})+.top-bar-right>ul.menu>li>inp[type=search][placeholder=\"${6:search}\"]^li>button[type=button].button{${7:Search}}",
+			"menu:drop": "ul.dropdown.menu[data-dropdown-menu.]>li*${1:how_many}>a{Item \\$}>ul.menu>li*${2:how_many}>a{Item \\$}",
+			"menu:drop:vert": "ul.vertical.dropdown.menu[data-dropdown-menu.]>li*${1:how_many}>a{Item \\$}>ul.menu>li*${2:how_many}>a{Item \\$}",
+			"menu:drill": "ul.vertical.menu[data-drilldown.]>li*${1:how_many}>a[href=\"#Item-\\$\"]{Item \\$}>ul.vertical.menu>li*${2:how_many}>a[href=\"#Item-\\$\\$\"]{Item \\$\\$}",
+			"menu:accordian": "ul.vertical.menu[data-accordion-menu.]>li*${1:how_many}>a{Item \\$}>ul.menu.vertical.nested>li*${2:how_many}>a{Item \\$\\$}",
+			//	BUTTONS
+			"button:tiny": "a.tiny.button{${1:Tiny Button}}",
+			"button:small": "a.small.button{${1:Small Button}}",
+			"button:large": "a.large.button{${1:Large Button}}",
+			"button:expanded": "a.expanded.button{${1:Expanded Button}}",
+			"button:expanded:small": "a.small.expanded.button{${1:Small Expanded Button}}",
+			//	BUTTON GROUP
+			"button:group": ".button-group>a.button{\\$}*${1:how_many}",
+			"button:group:small": ".small.button-group>a.button{\\$}*${1:how_many}",
+			"button:group:expanded": ".expanded.button-group>a.button{\\$}*${1:how_many}",
+			"button:group:stacked": ".stacked.button-group>a.button{\\$}*${1:how_many}",
+			"button:group:stacked:small": ".stacked-for-small.button-group>a.button{\\$}*${1:how_many}",
+			"button:group:stacked:medium": ".stacked-for-medium.button-group>a.button{\\$}*${1:how_many}",
+			//	SLIDER
+			"slider": ".slider[data-slider. data-initial-start=${1:start} data-end=${2:end}]>span.slider-handle[data-slider-handle. role=slider tabindex=1]+span.slider-fill[data-slider-fill.]+input:hidden",
+			"slider:vert": ".slider.vertical[data-slider. data-initial-start=${1:start} data-end=${2:end} data-vertical=true]>span.slider-handle[data-slider-handle. role=slider tabindex=1]+span.slider-fill[data-slider-fill.]+input:hidden",
+			//	SWITCHES
+			"switch": ".switch>input:checkbox.switch-input#${1:switch_id}[name=${2:switch_name}]+label.switch-paddle[for=${1:switch_id}]>span.show-for-sr{${3:Screen_Reader_Copy}}",
+			"switch:tiny": ".switch.tiny>input:checkbox.switch-input#${1:switch_id}[name=${2:switch_name}]+label.switch-paddle[for=${1:switch_id}]>span.show-for-sr{${3:Screen_Reader_Copy}}",
+			"switch:small": ".switch.small>input:checkbox.switch-input#${1:switch_id}[name=${2:switch_name}]+label.switch-paddle[for=${1:switch_id}]>span.show-for-sr{${3:Screen_Reader_Copy}}",
+			"switch:large": ".switch.large>input:checkbox.switch-input#${1:switch_id}[name=${2:switch_name}]+label.switch-paddle[for=${1:switch_id}]>span.show-for-sr{${3:Screen_Reader_Copy}}",
+			"switch:text": ".switch.large>input:checkbox.switch-input#${1:switch_id}[name=${2:switch_name}]+label.switch-paddle[for=${1:switch_id}]>span.show-for-sr{${3:Screen_Reader_Copy}}+span.switch-active[aria-hidden=true]{${4:Active_Text}}+span.switch-inactive[aria-hidden=true]{${5:Inactive_Text}}",
+			"switch:radio": ".switch*${1:how_many}>input:radio.switch-input#${2:switch_id}\\$[checked. name=${3:switch_name}]+label.switch-paddle[for=${2:switch_id}\\$]>span.show-for-sr{${4:Screen_Reader_Text}}",
+			//	PAGINATION
+			"pagination": "ul.pagination[role=navigation aria-label=Pagination]>li.pagination-previous[disabled.]{Previous }>span.show-for-sr{page}^li.current>span.show-for-sr{You're on page}+{1}^li*${1:how_many}>a[aria-label=\"Page \\$@2\"]{\\$@2}^li.pagination-next>a[aria-label=\"Next page\"]{Next }>span.show-for-sr{page}",
+			//	BREADCRUMBS
+			"breadcrumbs": "nav[aria-label=\"You are here:\" role=navigation]>ul.breadcrumbs>li>a{Home}^li>a{Page 1}^li.disabled{Disabled}+li>span.show-for-sr{Current: } {Current Page}",
+			//	ACCORDION
+			"accordion": "ul.accordion[data-accordion.]>(li.accordion-item[data-accordion-item.]>a.accordion-title{Accordion}$+.accordion-content[data-tab-content.]{lorem${1:25}})*${2:how_many}",
+			//	DROPDOWN
+			"dropdown":	"button.button[type=button data-toggle=${1:element_id}]{${2:Button_Text}}+.dropdown-pane#${1:element_id}[data-dropdown. data-auto-focus=true]{PLACE YOUR CONTENT IN HERE}",
+			"dropdown:hover": "button.button[type=button data-toggle=${1:element_id}]{${2:Button_Text}}+.dropdown-pane#${1:element_id}[data-dropdown. data-hover=true data-hover-pane=true]{PLACE YOUR CONTENT IN HERE}",
+			//	OFF CANVAS
+			"off-canvas": ".off-canvas-wrapper>.off-canvas-wrapper-inner[data-off-canvas-wrapper.]>.off-canvas.position-${1:left-or-right}#offCanvas[data-off-canvas.]>button.close-button[type=button data-close.]>span[aria-hidden=true]{&times;}^ul.vertical.menu>li*4>a{Link-\\$}^^^.off-canvas-content[data-off-canvas-content.]>button.button[type=button data-toggle=offCanvas]{Open Menu}",
+			//	MODALS
+			"modal": ".reveal#${1:modal_id}[data-reveal.]>h1{MODAL CONTENT}+p{lorem45}+button.close-button[data-close. type=button]>span[aria-hidden=true]>{&times;}^^^p>button[data-open=${1:modal_id}]{Click me for a modal}",
+			"modal:tiny": ".reveal.tiny#${1:modal_id}[data-reveal.]>h1{MODAL CONTENT}+p{lorem45}+button.close-button[data-close. type=button]>span[aria-hidden=true]>{&times;}^^^p>button[data-open=${1:modal_id}]{Click me for a modal}",
+			"modal:small": ".reveal.small#${1:modal_id}[data-reveal.]>h1{MODAL CONTENT}+p{lorem45}+button.close-button[data-close. type=button]>span[aria-hidden=true]>{&times;}^^^p>button[data-open=${1:modal_id}]{Click me for a modal}",	
+			"modal:large": ".reveal.large#${1:modal_id}[data-reveal.]>h1{MODAL CONTENT}+p{lorem45}+button.close-button[data-close. type=button]>span[aria-hidden=true]>{&times;}^^^p>button[data-open=${1:modal_id}]{Click me for a modal}",	
+			"modal:full": ".reveal.full#${1:modal_id}[data-reveal.]>h1{MODAL CONTENT}+p{lorem45}+button.close-button[data-close. type=button]>span[aria-hidden=true]>{&times;}^^^p>button[data-open=${1:modal_id}]{Click me for a modal}",	
+			//	TABLES
+			"tables": "table>thead>tr>th{Header Cell \\$}*${1:how_many_columns}^^tbody>tr*${2:how_many_rows}>td{Data Cell \\$}*${1:how_many_columns}^^tfoot>tr>th{Footer Cell \\$}*${1:how_many_columns}",
+			"tables:hover": "table.hover>thead>tr>th{Header Cell \\$}*${1:how_many_columns}^^tbody>tr*${2:how_many_rows}>td{Data Cell \\$}*${1:how_many_columns}^^tfoot>tr>th{Footer Cell \\$}*${1:how_many_columns}",
+			"tables:stack": "table.stack>thead>tr>th{Header Cell \\$}*${1:how_many_columns}^^tbody>tr*${2:how_many_rows}>td{Data Cell \\$}*${1:how_many_columns}^^tfoot>tr>th{Footer Cell \\$}*${1:how_many_columns}",
+			"tables:scroll": ".table-scroll>table>thead>tr>th{Header Cell \\$}*${1:how_many_columns}^^tbody>tr*${2:how_many_rows}>td{Data Cell \\$}*${1:how_many_columns}^^tfoot>tr>th{Footer Cell \\$}*${1:how_many_columns}",
+			//	TABS
+			"tabs": "ul.tabs#${1:tabs_title}[data-tabs.]>li.tabs-title.is-active>a[href=#panel1 aria-selected=true]{Tab 1}^li.tabs-title*${2:how_many_more}>a[href=#panel\\$@2 aria-selected=true]{Tab \\$@2}^^.tabs-content[data-tabs-content=${1:tabs_title}]>.tabs-panel.is-active#panel1>p{lorem52}^.tabs-panel#panel\\$@2*${2:how_many_more}>p{lorem52}",
+			"tabs:vert": ".row.collapse>.medium-3.columns>ul.tabs.vertical#${1:tabs_title}[data-tabs.]>li.tabs-title.is-active>a[href=#panel1 aria-selected=true]{Tab 1}^li.tabs-title*${2:how_many_more}>a[href=#panel\\$@2 aria-selected=true]{Tab \\$@2}^^^.medium-9.columns>.tabs-content.vertical[data-tabs-content=${1:tabs_title}]>.tabs-panel.is-active#panel1>p{lorem52}^.tabs-panel#panel\\$@2*${2:how_many_more}>p{lorem52}",
+			//	FLEX VIDEO
+			"video": ".flex-video.widescreen>iframe[width=${1:420} height=${2:315} src=${3:video_url} frameborder=0 allowfullscreen]",
+			"video:youtube": ".flex-video.widescreen>iframe[width=${1:420} height=${2:315} src=https://www.youtube.com/embed/${3:video_code} frameborder=0 allowfullscreen]",
+			"video:vimeo": ".flex-video.widescreen.vimeo>iframe[width=${1:420} height=${2:315} src=https://player.vimeo.com/video/${3:video_code} frameborder=0 allowfullscreen]",
+			//	ORBIT SLIDER
+			"slider:image": ".orbit[role=region aria-label=\"${1:slider-title}\" data-orbit.]>ul.orbit-container>button.orbit-previous>span.show-for-sr{Previous Slide}+{&#9664;&#xFE0E;}^button.orbit-next>span.show-for-sr{Next Slide}+{&#9654;&#xFE0E;}^li.is-active.orbit-slide>img.orbit-image[src=\"${2:image-source}\" alt=\"${3:image-alt}\"]+figcaption.orbit-caption{${4:slide-caption}}^li.orbit-slide*${5:how_many_more}>img.orbit-image[src=\"http://lorempixel.com/400/200\" alt=\"Alt Text\"]+figcaption.orbit-caption{CAPTION TEXT}^^nav.orbit-bullets>button.is-active[data-slide=0]>span.show-for-sr{${4:slide-caption}}+span.show-for-sr{Current Slide}^button[data-slide=\\$]*${5:how_many_more}>span.show-for-sr{#\\$ slide details.}",
+			"slider:text": ".orbit[role=region aria-label=\"${1:slider-title}\" data-orbit.]>ul.orbit-container>button.orbit-previous>span.show-for-sr{Previous Slide}+{&#9664;&#xFE0E;}^button.orbit-next>span.show-for-sr{Next Slide}+{&#9654;&#xFE0E;}^li.is-active.orbit-slide>div>p{SLIDE COPY HERE}^^li.orbit-slide*${2:how_many_more}>div>p{SLIDE-\\$@2 COPY HERE}^^^nav.orbit-bullets>button.is-active[data-slide=0]>span.show-for-sr{SLIDE CAPTION}+span.show-for-sr{Current Slide}^button[data-slide=\\$]*${2:how_many_more}>span.show-for-sr{#\\$@2 SLIDE CAPTION.}",
+			//	TOOLTIP
+			"tooltip": "span.has-tip.${1:location-top-bottom-left-right}[data-tooltip. aria-haspopup=\"true\" data-disable-hover=\"${2:false}\" tabindex=\"1\" title=\"${3:ToolTip-Inner-Text}\"]{${4:ToolTip-Word(s)}}",
+			//	EQUALIZER
+			"equalize": ".row[data-equalizer=\"${1:keyword}\"]>.medium-4.columns[data-equalizer-watch=\"${1:keyword}\"]*3>{CONTENT HERE}",
+		}
+	},
+
+	// Emmet preferences
+	// List of all available preferences:
+	// http://docs.emmet.io/customization/preferences/
+	"preferences": {
+		// "css.valueSeparator": ": ",
+		// "css.propertyEnd": ";"
+	},
+
+	// Output profiles for syntaxes
+	// http://docs.emmet.io/customization/syntax-profiles/
+	"syntaxProfiles": {
+		// Enable XHTML dialect for HTML syntax
+		// "html": "xhtml"
+		// 
+		// Write chained CSS abbreviations on single line:
+		// "css": "css_line"
+	}
+}
