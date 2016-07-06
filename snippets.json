@@ -1,5 +1,6 @@
 {
 	"html": {
+		"language": "Foundation 6",
 		"filters": "html",
 		"profile": "html",
 		"snippets": {
