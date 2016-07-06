@@ -1,12 +1,4 @@
 {
-	"variables": {
-		"lang": "en",
-		"locale": "en-US",
-		"charset": "UTF-8",
-		"indentation": "\t",
-		"newline": "\n"
-	},
-	
 	"html": {
 		"filters": "html",
 		"profile": "html",
@@ -60,9 +52,6 @@
 			"slider:text": ".orbit[role=region aria-label=\"${1:slider-title}\" data-orbit.]>ul.orbit-container>button.orbit-previous>span.show-for-sr{Previous Slide}+{&#9664;&#xFE0E;}^button.orbit-next>span.show-for-sr{Next Slide}+{&#9654;&#xFE0E;}^li.is-active.orbit-slide>div>p{SLIDE COPY HERE}^^li.orbit-slide*${2:how_many_more}>div>p{SLIDE-\\$@2 COPY HERE}^^^nav.orbit-bullets>button.is-active[data-slide=0]>span.show-for-sr{SLIDE CAPTION}+span.show-for-sr{Current Slide}^button[data-slide=\\$]*${2:how_many_more}>span.show-for-sr{#\\$@2 SLIDE CAPTION.}",
 			"tooltip": "span.has-tip.${1:location-top-bottom-left-right}[data-tooltip. aria-haspopup=\"true\" data-disable-hover=\"${2:false}\" tabindex=\"1\" title=\"${3:ToolTip-Inner-Text}\"]{${4:ToolTip-Word(s)}}",
 			"equalize": ".row[data-equalizer=\"${1:keyword}\"]>.medium-4.columns[data-equalizer-watch=\"${1:keyword}\"]*3>{CONTENT HERE}"
-		},
-		
-		"abbreviations": {
 		}
 	}
 }
