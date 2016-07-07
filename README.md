@@ -4,6 +4,11 @@ Foundation 6 snippets with options for Emmet in SublimeText 3
 <a target='_blank' href='https://pledgie.com/campaigns/32195'><img alt='Click here to lend your support to: Sublime Text 3 Emmet Dynamic Snippets for Foundation 6 and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/32195.png?skin_name=chrome' border='0' ></a>
 
 # Instructions
+* You will obviously need the following prior to doing anything with this repo...
+  * [Sublime Text 3](https://www.sublimetext.com/3)
+  * [Emmet](http://emmet.io/)
+  * [Foundation for Sites 6](http://foundation.zurb.com/sites/getting-started.html)
+  
 * Download this repo and unzip.
 * Create a folder in SublimeText 3 > Packages > User
 * Use the Menu to open the `Emmet.sublime-settings` file 
