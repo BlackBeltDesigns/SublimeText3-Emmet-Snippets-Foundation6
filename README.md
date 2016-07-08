@@ -172,6 +172,7 @@ _(for ease of use, I named them what they are so they can be easily located in t
 * "modal:small"
 * "modal:large"
 * "modal:full"
+* "page"
 * "tables"
 * "tables:hover"
 * "tables:stack"
